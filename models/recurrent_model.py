@@ -12,4 +12,4 @@ class CryptoLSTM:
 		self.target = tf.placeholder(tf.float32, [batch_size, num_steps])
 
 	def construct_neural_network():
-
+		pass

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
-from data_parser import get_user_input
+from parsers.data_parser import get_user_input
 
 def linear_regression(train_input, train_output, test_input):
 	regression = linear_model.LinearRegression()
