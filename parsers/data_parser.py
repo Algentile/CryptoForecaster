@@ -1,11 +1,12 @@
 import numpy as np
 from sys import argv
+import tensorflow as tf
 from tflearn.data_utils import load_csv
 
 def parse_csv(csv_file):
-	features, labels = load_csv(csv_file, target_column=4, columns_to_ignore=None, has_header=True)
-	feature_tensor = np.array(features).reshape(len(features[0]), len(features))
-	label_tensor = np.array(labels).reshape(len(labels), 1)
+	features, labels = load_csv(csv_file, target_column=3, columns_to_ignore=None, has_header=True)
+	feature_tensor = np.array(features).reshape(len(features), len(features[0])).astype(np.float)
+	label_tensor = np.array(labels).reshape(len(labels), -1).astype(np.float)
 	return feature_tensor, label_tensor
 
 """
@@ -25,3 +26,8 @@ def get_user_input():
 	file_dict = {'train': (train_x, train_y), 'test': (test_x, test_y)}
 	return file_dict
 
+def main():
+	get_user_input()
+
+if __name__ == '__main__':
+	main()

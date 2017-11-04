@@ -12,8 +12,8 @@ def linear_regression(train_input, train_output, test_input):
 
 def main():
 	file_dict = get_user_input()
-	train_input, train_output = file_dict['train']
-	test_input, test_output = file_dict['test']
+	(train_input, train_output) = file_dict['train']
+	(test_input, test_output) = file_dict['test']
 	prediction = linear_regression(train_input, train_output, test_input)
 	mean_squared = mean_squared_error(test_output, prediction)
 	variance = r2_score(test_output, prediction)
