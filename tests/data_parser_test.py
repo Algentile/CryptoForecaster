@@ -13,7 +13,7 @@ class DataParserTest(unittest.TestCase):
     def test_parse_config(self):
         train_file = self.settings_dict['train_file']
         self.assertTrue(
-            str(train_file) == '/Users/algentile/Documents/CryptoForecaster/datasets/cryptocurrency/eth_train_file.csv')
+            str(train_file) == 'test_files/eth_train_file.csv')
 
     def test_broken_config(self):
         with self.assertRaises(Exception) as context:
