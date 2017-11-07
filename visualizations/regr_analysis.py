@@ -12,16 +12,26 @@ def linear_regression(train_input, train_output, test_input):
     return prediction
 
 
+def plot_regression(test_input, prediction):
+	plt.plot(test_input, prediction)
+	plt.xlabel('Expected', fontsize=16)
+	plt.ylabel('Predicted', fontsize=16)
+	plt.title('Expected vs Predicted', fontsize=20)
+	plt.savefig('forecasted.png')
+	plt.clf()
+
 def main():
     settings_dict = get_config_map('../config.ini')
-    
-    (train_input, train_output) = parse_csv(settings_dict['train_file'], column_number=3)
-    (test_input, test_output) = parse_csv(settings_dict['test_file'], column_number=3)
+
+    (train_input, train_output) = parse_csv(
+        settings_dict['train_file'], column_number=3)
+    (test_input, test_output) = parse_csv(
+        settings_dict['test_file'], column_number=3)
 
     prediction = linear_regression(train_input, train_output, test_input)
     mean_squared = mean_squared_error(test_output, prediction)
     variance = r2_score(test_output, prediction)
-
+    plot_regression(test_input, prediction)
     print('Mean squared is: ', mean_squared)
     print('Variance score is: ', variance)
 
